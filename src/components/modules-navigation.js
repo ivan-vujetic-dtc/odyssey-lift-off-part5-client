@@ -13,7 +13,7 @@ const ModulesNav = ({ module, track }) => {
     <ModulesNavContainer>
       <ModuleTitle>
         <h4>
-          <Link to="../..">{track.title}</Link>
+          <Link to='../..'>{track.title}</Link>
         </h4>
       </ModuleTitle>
       <ModulesList>
@@ -23,12 +23,14 @@ const ModulesNav = ({ module, track }) => {
               <ModuleNavStyledLink to={`../${navModule.id}`}>
                 <ModuleListItemContent isActive={navModule.id === module.id}>
                   {navModule.id === module.id ? (
-                    <IconDoubleArrowRight width="14px" />
+                    <IconDoubleArrowRight width='14px' />
                   ) : (
-                    <IconArrowRight width="14px" weight="thin" />
+                    <IconArrowRight width='14px' weight='thin' />
                   )}
                   <div>{navModule.title}</div>
-                  <div>{humanReadableTimeFromSeconds(navModule.length)}</div>
+                  <div>
+                    {humanReadableTimeFromSeconds(navModule.durationInSeconds)}
+                  </div>
                 </ModuleListItemContent>
               </ModuleNavStyledLink>
             </div>
